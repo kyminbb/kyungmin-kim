@@ -1,8 +1,8 @@
-import * as React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
-import theme from "../utils/theme";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import * as React from "react";
 import createEmotionCache from "../utils/createEmotionCache";
+import theme from "../utils/theme";
 
 export default class MyDocument extends Document {
 	render() {
@@ -37,6 +37,7 @@ MyDocument.getInitialProps = async (ctx) => {
 		originalRenderPage({
 			enhanceApp: (App) =>
 				function EnhanceApp(props) {
+					// @ts-ignore
 					return <App emotionCache={cache} {...props} />;
 				},
 		});
