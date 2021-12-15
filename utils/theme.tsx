@@ -1,18 +1,32 @@
-import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-const theme = createTheme({
+declare module "@mui/material/styles" {
+	interface Palette {
+		sectionTitle: Palette["primary"];
+	}
+
+	interface PaletteOptions {
+		sectionTitle: PaletteOptions["primary"];
+	}
+}
+
+const theme = responsiveFontSizes(createTheme({
 	palette: {
 		primary: {
-			main: "#556cd6",
+			main: "#b8a07e",
 		},
 		secondary: {
-			main: "#19857b",
+			main: "#999999",
 		},
-		error: {
-			main: red.A400,
+		sectionTitle: {
+			main: "#292929",
 		},
 	},
-});
+	typography: {
+		h2: {
+			fontSize: 25,
+		},
+	},
+}));
 
 export default theme;
