@@ -1,23 +1,34 @@
-import { AppProps } from "next/app";
-import { NextPage } from "next";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import * as React from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider } from "@emotion/react";
 import theme from "../utils/theme";
+import createEmotionCache from "../utils/createEmotionCache";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: Roboto, -apple-system, Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  }
-`;
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
-const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
+export default function MyApp(props) {
+	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
 	return (
-		<ThemeProvider theme={theme}>
-			<Component {...pageProps} />
-			<GlobalStyle />
-		</ThemeProvider>
+		<CacheProvider value={emotionCache}>
+			<Head>
+				<title>Kyungmin Kim</title>
+				<meta name="viewport" content="initial-scale=1, width=device-width" />
+			</Head>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<Component {...pageProps} />
+			</ThemeProvider>
+		</CacheProvider>
 	);
-};
+}
 
-export default MyApp;
+MyApp.propTypes = {
+	Component: PropTypes.elementType.isRequired,
+	emotionCache: PropTypes.object,
+	pageProps: PropTypes.object.isRequired,
+};
