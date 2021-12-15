@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Production
+build/
+
+# Next.js
+.next
+
+# Misc
+.DS_Store
+.env
+yarn-debug.log*
+yarn-error.log*
+.idea/
