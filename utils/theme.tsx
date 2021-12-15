@@ -23,8 +23,17 @@ const theme = responsiveFontSizes(createTheme({
 		},
 	},
 	typography: {
+		h1: {
+			fontSize: 40,
+			fontWeight: 700,
+		},
 		h2: {
 			fontSize: 25,
+			fontWeight: 600,
+		},
+		subtitle1: {
+			fontSize: 13,
+			fontWeight: 500,
 		},
 	},
 }));

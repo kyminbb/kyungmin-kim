@@ -1,15 +1,26 @@
+import { Box } from "@mui/material";
+import _ from "lodash";
 import React from "react";
-import { About, Education, Home, Projects, Work } from "../components/organisms";
+import { Home } from "../components/organisms";
+import { SocialLink } from "../data/links";
 
-const IndexTemplate: React.FC = () => {
-	return (
-		<>
-			<Home />
-			<About />
-			<Education />
-			<Work />
-			<Projects />
-		</>
+interface IndexTemplateProps {
+	socialLinks: SocialLink[];
+}
+
+const IndexTemplate: React.FC<IndexTemplateProps> = ({ socialLinks }) => {
+	const sections = [
+		<Home socialLinks={socialLinks} />,
+		<Home socialLinks={socialLinks} />,
+		<Home socialLinks={socialLinks} />,
+		<Home socialLinks={socialLinks} />,
+		<Home socialLinks={socialLinks} />,
+	];
+
+	return _.map(sections, (section, i) =>
+		<Box boxSizing="border-box" display="block" height="100vh" key={`section-${i}`} width="100%">
+			{section}
+		</Box>,
 	);
 };
 
