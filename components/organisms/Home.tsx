@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
-import { SocialLink } from "../../data/links";
+import { SocialLink } from "../../static/links";
 import { HomeContent, SocialList } from "../molecules";
 
 interface HomeProps {

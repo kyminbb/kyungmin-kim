@@ -1,7 +1,7 @@
 import { IconButton, Stack } from "@mui/material";
 import _ from "lodash";
 import React from "react";
-import { SocialLink } from "../../data/links";
+import { SocialLink } from "../../static/links";
 
 interface SocialListProps {
 	socialLinks: SocialLink[];

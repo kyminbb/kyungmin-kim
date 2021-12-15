@@ -1,25 +1,16 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-declare module "@mui/material/styles" {
-	interface Palette {
-		sectionTitle: Palette["primary"];
-	}
-
-	interface PaletteOptions {
-		sectionTitle: PaletteOptions["primary"];
-	}
-}
-
 const theme = responsiveFontSizes(createTheme({
 	palette: {
 		primary: {
 			main: "#b8a07e",
 		},
 		secondary: {
-			main: "#999999",
+			main: "#898989",
 		},
-		sectionTitle: {
-			main: "#292929",
+		text: {
+			primary: "#292929",
+			secondary: "#898989",
 		},
 	},
 	typography: {
@@ -31,9 +22,17 @@ const theme = responsiveFontSizes(createTheme({
 			fontSize: 25,
 			fontWeight: 600,
 		},
+		h4: {
+			fontSize: 19,
+			fontWeight: 550,
+		},
 		subtitle1: {
-			fontSize: 13,
+			fontSize: 15,
 			fontWeight: 500,
+		},
+		body2: {
+			fontSize: 15,
+			fontWeight: 400,
 		},
 	},
 }));

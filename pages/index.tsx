@@ -1,11 +1,10 @@
 import React from "react";
-import { FACEBOOK, GITHUB, LINKEDIN } from "../data/links";
+import EDUCATION_LIST from "../static/education";
+import SOCIAL_LINKS from "../static/links";
 import { IndexTemplate } from "../templates";
 
-const SOCIAL_LINKS = [FACEBOOK, LINKEDIN, GITHUB];
-
 const IndexPage: React.FC = () => {
-	return <IndexTemplate socialLinks={SOCIAL_LINKS} />;
+	return <IndexTemplate educationList={EDUCATION_LIST} socialLinks={SOCIAL_LINKS} />;
 };
 
 export default IndexPage;

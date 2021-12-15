@@ -1,20 +1,19 @@
 import { Box } from "@mui/material";
 import _ from "lodash";
 import React from "react";
-import { Home } from "../components/organisms";
-import { SocialLink } from "../data/links";
+import { Education, Home } from "../components/organisms";
+import { EducationData } from "../static/education";
+import { SocialLink } from "../static/links";
 
 interface IndexTemplateProps {
+	educationList: EducationData[];
 	socialLinks: SocialLink[];
 }
 
-const IndexTemplate: React.FC<IndexTemplateProps> = ({ socialLinks }) => {
+const IndexTemplate: React.FC<IndexTemplateProps> = ({ educationList, socialLinks }) => {
 	const sections = [
 		<Home socialLinks={socialLinks} />,
-		<Home socialLinks={socialLinks} />,
-		<Home socialLinks={socialLinks} />,
-		<Home socialLinks={socialLinks} />,
-		<Home socialLinks={socialLinks} />,
+		<Education educationList={educationList} />,
 	];
 
 	return _.map(sections, (section, i) =>

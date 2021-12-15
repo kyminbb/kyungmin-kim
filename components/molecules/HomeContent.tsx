@@ -5,7 +5,7 @@ import { Title } from "../atoms";
 const HomeContent: React.FC = () => {
 	return (
 		<Box marginBottom="30px" paddingLeft="8px">
-			<Title text="Kyungmin Kim" />
+			<Title text="Kyungmin Kim" variant="h1" />
 			<Typography letterSpacing="3px" variant="subtitle1">
 				Software Engineering, Machine Learning, Computer Systems
 			</Typography>
